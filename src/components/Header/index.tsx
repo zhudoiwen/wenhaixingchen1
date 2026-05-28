@@ -1,19 +1,28 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
+import { AuroraText } from "@/components/ui/aurora-text";
 import ThemeToggler from "./ThemeToggler";
 import menuData from "./menuData";
 
+const MenuTitle = ({ title }: { title: string }) => {
+  return (
+    <AuroraText
+      colors={["#ff2975", "#7928CA", "#0070F3", "#38bdf8"]}
+      speed={1.2}
+    >
+      {title}
+    </AuroraText>
+  );
+};
+
 const Header = () => {
-  // Navbar toggle
   const [navbarOpen, setNavbarOpen] = useState(false);
   const navbarToggleHandler = () => {
     setNavbarOpen(!navbarOpen);
   };
 
-  // Sticky Navbar
   const [sticky, setSticky] = useState(false);
   const handleStickyNavbar = () => {
     if (window.scrollY >= 80) {
@@ -26,7 +35,6 @@ const Header = () => {
     window.addEventListener("scroll", handleStickyNavbar);
   });
 
-  // submenu handler
   const [openIndex, setOpenIndex] = useState(-1);
   const handleSubmenu = (index) => {
     if (openIndex === index) {
@@ -39,14 +47,12 @@ const Header = () => {
   const router = useRouter();
   const usePathName = usePathname();
 
-  // Handle anchor link click
   const handleAnchorClick = (e, path) => {
     if (path.startsWith('#')) {
       e.preventDefault();
       const targetId = path.substring(1);
       
       if (usePathName === '/') {
-        // 当前在首页，直接平滑滚动
         const targetElement = document.getElementById(targetId);
         if (targetElement) {
           targetElement.scrollIntoView({
@@ -55,11 +61,9 @@ const Header = () => {
           });
         }
       } else {
-        // 当前在非首页，跳转到首页并保留锚点
         router.push('/#contact', { scroll: false });
       }
       
-      // Close mobile menu if open
       if (navbarOpen) {
         setNavbarOpen(false);
       }
@@ -84,20 +88,14 @@ const Header = () => {
                   sticky ? "py-5 lg:py-2" : "py-8"
                 } `}
               >
-                <Image
-                  src="/images/logo/logo-2.svg"
-                  alt="logo"
-                  width={140}
-                  height={30}
-                  className="w-full dark:hidden"
-                />
-                <Image
-                  src="/images/logo/logo.svg"
-                  alt="logo"
-                  width={140}
-                  height={30}
-                  className="hidden w-full dark:block"
-                />
+                <h2 className="text-xl font-bold dark:text-white">
+                  <AuroraText
+                    colors={["#ff2975", "#7928CA", "#0070F3", "#38bdf8"]}
+                    speed={1.2}
+                  >
+                    文海星辰
+                  </AuroraText>
+                </h2>
               </Link>
             </div>
             <div className="flex w-full items-center justify-between px-4">
@@ -146,7 +144,7 @@ const Header = () => {
                                   : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
                               }`}
                             >
-                              {menuItem.title}
+                              <MenuTitle title={menuItem.title} />
                             </a>
                           ) : (
                             <Link
@@ -157,7 +155,7 @@ const Header = () => {
                                   : "text-dark hover:text-primary dark:text-white/70 dark:hover:text-white"
                               }`}
                             >
-                              {menuItem.title}
+                              <MenuTitle title={menuItem.title} />
                             </Link>
                           )
                         ) : (
@@ -166,7 +164,7 @@ const Header = () => {
                               onClick={() => handleSubmenu(index)}
                               className="text-dark group-hover:text-primary flex cursor-pointer items-center justify-between py-2 text-base lg:mr-0 lg:inline-flex lg:px-0 lg:py-6 dark:text-white/70 dark:group-hover:text-white"
                             >
-                              {menuItem.title}
+                              <MenuTitle title={menuItem.title} />
                               <span className="pl-3">
                                 <svg width="25" height="24" viewBox="0 0 25 24">
                                   <path
@@ -189,7 +187,7 @@ const Header = () => {
                                   key={index}
                                   className="text-dark hover:text-primary block rounded-sm py-2.5 text-sm lg:px-3 dark:text-white/70 dark:hover:text-white"
                                 >
-                                  {submenuItem.title}
+                                  <MenuTitle title={submenuItem.title} />
                                 </Link>
                               ))}
                             </div>

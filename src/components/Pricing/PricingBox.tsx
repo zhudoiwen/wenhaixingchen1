@@ -1,3 +1,5 @@
+import { AuroraText } from "@/components/ui/aurora-text";
+
 const PricingBox = (props: {
   price: string;
   duration: string;
@@ -13,13 +15,20 @@ const PricingBox = (props: {
       <div className="shadow-three hover:shadow-one dark:bg-gray-dark dark:shadow-two dark:hover:shadow-gray-dark relative z-10 rounded-xs bg-white px-8 py-10">
         <div className="flex items-center justify-between">
           <h3 className="price mb-2 text-[32px] font-bold text-black dark:text-white">
-            ¥<span className="amount">{price}</span>
-            <span className="time text-body-color text-lg font-medium">
-              /{duration}
-            </span>
+            <AuroraText
+              colors={["#ff2975", "#7928CA", "#0070F3", "#38bdf8"]}
+              speed={1.2}
+            >
+              ¥<span className="amount">{price}</span>/{duration}
+            </AuroraText>
           </h3>
           <h4 className="text-dark mb-2 text-xl font-bold dark:text-white">
-            {packageName}
+            <AuroraText
+              colors={["#ff2975", "#7928CA", "#0070F3", "#38bdf8"]}
+              speed={1.2}
+            >
+              {packageName}
+            </AuroraText>
           </h4>
         </div>
         <p className="text-body-color mb-7 text-base">{subtitle}</p>
@@ -28,7 +37,12 @@ const PricingBox = (props: {
               onClick={onButtonClick}
               className="bg-primary/80 hover:shadow-signUp flex w-full items-center justify-center rounded-xs p-3 text-base font-semibold text-white transition duration-300 ease-in-out"
             >
-              开始免费试用
+              <AuroraText
+                colors={["#ff2975", "#7928CA", "#0070F3", "#38bdf8"]}
+                speed={1.2}
+              >
+                开始免费试用
+              </AuroraText>
             </button>
         </div>
         <div>{children}</div>

@@ -1,13 +1,14 @@
 "use client"
 
 import { useEffect, useId, useState, type RefObject } from "react"
-import { motion } from "motion/react"
+import { motion, AnimatePresence } from "motion/react"
 
 import { cn } from "@/lib/utils"
+import { useAnimationControl } from "@/hooks/useAnimationControl"
 
 export interface AnimatedBeamProps {
   className?: string
-  containerRef: RefObject<HTMLElement | null> // Container ref
+  containerRef: RefObject<HTMLElement | null>
   fromRef: RefObject<HTMLElement | null>
   toRef: RefObject<HTMLElement | null>
   curvature?: number
@@ -33,7 +34,7 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
   fromRef,
   toRef,
   curvature = 0,
-  reverse = false, // Include the reverse prop
+  reverse = false,
   duration = 5,
   delay = 0,
   pathColor = "gray",
@@ -51,8 +52,17 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
   const id = useId()
   const [pathD, setPathD] = useState("")
   const [svgDimensions, setSvgDimensions] = useState({ width: 0, height: 0 })
+  const [isVisible, setIsVisible] = useState(false)
 
-  // Calculate the gradient coordinates based on the reverse prop
+  const { ref: observerRef, shouldAnimate } = useAnimationControl<HTMLDivElement>({
+    rootMargin: "100px",
+    threshold: 0.1,
+  })
+
+  useEffect(() => {
+    setIsVisible(shouldAnimate)
+  }, [shouldAnimate])
+
   const gradientCoordinates = reverse
     ? {
         x1: ["90%", "-10%"],
@@ -95,20 +105,16 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
       }
     }
 
-    // Initialize ResizeObserver
     const resizeObserver = new ResizeObserver(() => {
       updatePath()
     })
 
-    // Observe the container element
     if (containerRef.current) {
       resizeObserver.observe(containerRef.current)
     }
 
-    // Call the updatePath initially to set the initial path
     updatePath()
 
-    // Clean up the observer on component unmount
     return () => {
       resizeObserver.disconnect()
     }
@@ -124,66 +130,75 @@ export const AnimatedBeam: React.FC<AnimatedBeamProps> = ({
   ])
 
   return (
-    <svg
-      fill="none"
-      width={svgDimensions.width}
-      height={svgDimensions.height}
-      xmlns="http://www.w3.org/2000/svg"
-      className={cn(
-        "pointer-events-none absolute top-0 left-0 transform-gpu stroke-2",
-        className
-      )}
-      viewBox={`0 0 ${svgDimensions.width} ${svgDimensions.height}`}
-    >
-      <path
-        d={pathD}
-        stroke={pathColor}
-        strokeWidth={pathWidth}
-        strokeOpacity={pathOpacity}
-        strokeLinecap="round"
-      />
-      <path
-        d={pathD}
-        strokeWidth={pathWidth}
-        stroke={`url(#${id})`}
-        strokeOpacity="1"
-        strokeLinecap="round"
-      />
-      <defs>
-        <motion.linearGradient
-          className="transform-gpu"
-          id={id}
-          gradientUnits={"userSpaceOnUse"}
-          initial={{
-            x1: "0%",
-            x2: "0%",
-            y1: "0%",
-            y2: "0%",
-          }}
-          animate={{
-            x1: gradientCoordinates.x1,
-            x2: gradientCoordinates.x2,
-            y1: gradientCoordinates.y1,
-            y2: gradientCoordinates.y2,
-          }}
-          transition={{
-            delay,
-            duration,
-            ease: [0.16, 1, 0.3, 1], // https://easings.net/#easeOutExpo
-            repeat,
-            repeatDelay,
-          }}
-        >
-          <stop stopColor={gradientStartColor} stopOpacity="0"></stop>
-          <stop stopColor={gradientStartColor}></stop>
-          <stop offset="32.5%" stopColor={gradientStopColor}></stop>
-          <stop
-            offset="100%"
-            stopColor={gradientStopColor}
-            stopOpacity="0"
-          ></stop>
-        </motion.linearGradient>
-      </defs>
-    </svg>
+    <div ref={observerRef} className="content-visibility-auto">
+      <AnimatePresence>
+        {isVisible && (
+          <motion.svg
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            fill="none"
+            width={svgDimensions.width}
+            height={svgDimensions.height}
+            xmlns="http://www.w3.org/2000/svg"
+            className={cn(
+              "pointer-events-none absolute top-0 left-0 transform-gpu stroke-2",
+              className
+            )}
+            viewBox={`0 0 ${svgDimensions.width} ${svgDimensions.height}`}
+          >
+            <path
+              d={pathD}
+              stroke={pathColor}
+              strokeWidth={pathWidth}
+              strokeOpacity={pathOpacity}
+              strokeLinecap="round"
+            />
+            <path
+              d={pathD}
+              strokeWidth={pathWidth}
+              stroke={`url(#${id})`}
+              strokeOpacity="1"
+              strokeLinecap="round"
+            />
+            <defs>
+              <motion.linearGradient
+                className="transform-gpu"
+                id={id}
+                gradientUnits={"userSpaceOnUse"}
+                initial={{
+                  x1: "0%",
+                  x2: "0%",
+                  y1: "0%",
+                  y2: "0%",
+                }}
+                animate={{
+                  x1: gradientCoordinates.x1,
+                  x2: gradientCoordinates.x2,
+                  y1: gradientCoordinates.y1,
+                  y2: gradientCoordinates.y2,
+                }}
+                transition={{
+                  delay,
+                  duration,
+                  ease: [0.16, 1, 0.3, 1],
+                  repeat,
+                  repeatDelay,
+                }}
+              >
+                <stop stopColor={gradientStartColor} stopOpacity="0"></stop>
+                <stop stopColor={gradientStartColor}></stop>
+                <stop offset="32.5%" stopColor={gradientStopColor}></stop>
+                <stop
+                  offset="100%"
+                  stopColor={gradientStopColor}
+                  stopOpacity="0"
+                ></stop>
+              </motion.linearGradient>
+            </defs>
+          </motion.svg>
+        )}
+      </AnimatePresence>
+    </div>
   )
 }

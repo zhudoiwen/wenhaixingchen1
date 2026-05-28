@@ -1,4 +1,5 @@
 import { Feature } from "@/types/feature";
+import { AuroraText } from "@/components/ui/aurora-text";
 
 const SingleFeature = ({ feature }: { feature: Feature }) => {
   const { icon, title, paragraph } = feature;
@@ -9,7 +10,12 @@ const SingleFeature = ({ feature }: { feature: Feature }) => {
           {icon}
         </div>
         <h3 className="mb-5 text-xl font-bold text-black sm:text-2xl lg:text-xl xl:text-2xl dark:text-white">
-          {title}
+          <AuroraText
+            colors={["#ff2975", "#7928CA", "#0070F3", "#38bdf8"]}
+            speed={1.2}
+          >
+            {title}
+          </AuroraText>
         </h3>
         <p className="text-body-color pr-[10px] text-base leading-relaxed font-medium">
           {paragraph}

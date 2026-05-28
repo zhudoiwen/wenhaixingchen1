@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import SectionTitle from "../Common/SectionTitle";
+import { AuroraText } from "@/components/ui/aurora-text";
 import OfferList from "./OfferList";
 import PricingBox from "./PricingBox";
 
@@ -13,12 +13,19 @@ const Pricing = (props: {
   return (
     <section id="pricing" className="relative z-10 py-16 md:py-20 lg:py-28">
       <div className="container">
-        <SectionTitle
-          title="简单实惠的定价方案"
-          paragraph="我们提供多种定价方案，满足不同规模企业的需求。选择最适合您的方案，开始您的创业之旅。"
-          center
-          width="665px"
-        />
+        <div className="mx-auto mb-[100px] max-w-[665px] text-center">
+          <h2 className="mb-4 text-3xl font-bold leading-tight! text-black dark:text-white sm:text-4xl md:text-[45px]">
+            <AuroraText
+              colors={["#ff2975", "#7928CA", "#0070F3", "#38bdf8"]}
+              speed={1.2}
+            >
+              简单实惠的定价方案
+            </AuroraText>
+          </h2>
+          <p className="text-base leading-relaxed! text-body-color md:text-lg">
+            我们提供多种定价方案，满足不同规模企业的需求。选择最适合您的方案，开始您的创业之旅。
+          </p>
+        </div>
 
         <div className="w-full">
           <div className="mb-8 flex justify-center md:mb-12 lg:mb-16">
@@ -30,7 +37,12 @@ const Pricing = (props: {
                   : "text-dark dark:text-white"
               } mr-4 cursor-pointer text-base font-semibold`}
             >
-              按月
+              <AuroraText
+                colors={["#ff2975", "#7928CA", "#0070F3", "#38bdf8"]}
+                speed={1.2}
+              >
+                按月
+              </AuroraText>
             </span>
             <div
               onClick={() => setIsMonthly(!isMonthly)}
@@ -55,7 +67,12 @@ const Pricing = (props: {
                   : "pointer-events-none text-primary"
               } ml-4 cursor-pointer text-base font-semibold`}
             >
-              按年
+              <AuroraText
+                colors={["#ff2975", "#7928CA", "#0070F3", "#38bdf8"]}
+                speed={1.2}
+              >
+                按年
+              </AuroraText>
             </span>
           </div>
         </div>

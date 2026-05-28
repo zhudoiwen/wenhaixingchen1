@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
+import { AuroraText } from "@/components/ui/aurora-text";
 
 type PropsType = {
   isOpen: boolean;
@@ -74,8 +75,13 @@ export default function WeChatModal({ isOpen, onClose, src }: PropsType) {
           />
         </div>
         <div className="flex items-center justify-center gap-3 mt-4">
-          <p className="text-gray-700 font-medium">
-            zhudiwen9999
+          <p className="text-gray-700 font-medium text-lg">
+            <AuroraText
+              colors={["#ff2975", "#7928CA", "#0070F3", "#38bdf8"]}
+              speed={1.2}
+            >
+              zhudiwen9999
+            </AuroraText>
           </p>
           <button
             onClick={handleCopy}

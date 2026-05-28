@@ -1,6 +1,6 @@
 "use client";
-import Image from "next/image";
 import Link from "next/link";
+import { AuroraText } from "@/components/ui/aurora-text";
 
 const Footer = () => {
   return (
@@ -11,20 +11,14 @@ const Footer = () => {
             <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-5/12">
               <div className="mb-12 max-w-[360px] lg:mb-16">
                 <Link href="/" className="mb-8 inline-block">
-                  <Image
-                    src="/images/logo/logo-2.svg"
-                    alt="logo"
-                    className="w-full dark:hidden"
-                    width={140}
-                    height={30}
-                  />
-                  <Image
-                    src="/images/logo/logo.svg"
-                    alt="logo"
-                    className="hidden w-full dark:block"
-                    width={140}
-                    height={30}
-                  />
+                  <h2 className="text-xl font-bold dark:text-white">
+                    <AuroraText
+                      colors={["#ff2975", "#7928CA", "#0070F3", "#38bdf8"]}
+                      speed={1.2}
+                    >
+                      文海星辰
+                    </AuroraText>
+                  </h2>
                 </Link>
                 <p className="mb-9 text-base leading-relaxed text-body-color dark:text-body-color-dark">
                   专注为武汉本地企业提供同城GEO优化、搜索引擎增长与Next.js网站搭建服务，助力品牌精准获客、高效增长。
@@ -35,7 +29,12 @@ const Footer = () => {
             <div className="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
               <div className="mb-12 lg:mb-16">
                 <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
-                  业务服务
+                  <AuroraText
+                    colors={["#ff2975", "#7928CA", "#0070F3", "#38bdf8"]}
+                    speed={1.2}
+                  >
+                    业务服务
+                  </AuroraText>
                 </h2>
                 <ul>
                   <li>
@@ -60,7 +59,12 @@ const Footer = () => {
             <div className="w-full px-4 sm:w-1/2 md:w-1/2 lg:w-2/12 xl:w-2/12">
               <div className="mb-12 lg:mb-16">
                 <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
-                  条款
+                  <AuroraText
+                    colors={["#ff2975", "#7928CA", "#0070F3", "#38bdf8"]}
+                    speed={1.2}
+                  >
+                    条款
+                  </AuroraText>
                 </h2>
                 <ul>
                   <li>
@@ -85,7 +89,12 @@ const Footer = () => {
             <div className="w-full px-4 md:w-1/2 lg:w-4/12 xl:w-3/12">
               <div className="mb-12 lg:mb-16">
                 <h2 className="mb-10 text-xl font-bold text-black dark:text-white">
-                  支持与帮助
+                  <AuroraText
+                    colors={["#ff2975", "#7928CA", "#0070F3", "#38bdf8"]}
+                    speed={1.2}
+                  >
+                    支持与帮助
+                  </AuroraText>
                 </h2>
                 <ul>
                   <li>
@@ -111,7 +120,12 @@ const Footer = () => {
           <div className="h-px w-full bg-linear-to-r from-transparent via-[#D2D8E183] to-transparent dark:via-[#959CB183]"></div>
           <div className="py-8">
             <p className="text-center text-base text-body-color dark:text-white">
-              2026 文海星辰 | 鄂ICP备999999999号 | 技术支持：Next.js
+              <AuroraText
+                colors={["#ff2975", "#7928CA", "#0070F3", "#38bdf8"]}
+                speed={1.2}
+              >
+                2026 文海星辰 | 鄂ICP备999999999号 | 技术支持：Next.js
+              </AuroraText>
             </p>
           </div>
         </div>

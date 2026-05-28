@@ -1,4 +1,6 @@
-import SectionTitle from "../Common/SectionTitle";
+"use client";
+
+import { AuroraText } from "@/components/ui/aurora-text";
 import { AnimatedBeamMultipleOutputDemo } from "../AnimatedBeamMultipleOutputDemo";
 
 const checkIcon = (
@@ -23,11 +25,19 @@ const AboutSectionOne = () => {
         <div className="border-b border-body-color/[.15] pb-16 dark:border-white/[.15] md:pb-20 lg:pb-28">
           <div className="-mx-4 flex flex-wrap items-center">
             <div className="w-full px-4 lg:w-1/2">
-              <SectionTitle
-                title="前沿架构+GEO优化，让你的网站在搜索时代脱颖而出"
-                paragraph="我们不止是搭建网站，更是为您构建一套适配搜索引擎规则的获客系统。通过高性能Next.js架构与精准SEO/GEO优化的深度结合，让您的品牌在目标市场搜索中获得更高曝光，持续为业务引流。"
-                mb="44px"
-              />
+              <div className="mb-[44px] max-w-[570px]">
+                <h2 className="mb-4 text-3xl font-bold leading-tight! text-black dark:text-white sm:text-4xl md:text-[45px]">
+                  <AuroraText
+                    colors={["#ff2975", "#7928CA", "#0070F3", "#38bdf8"]}
+                    speed={1.2}
+                  >
+                    前沿架构+GEO优化，让你的网站在搜索时代脱颖而出
+                  </AuroraText>
+                </h2>
+                <p className="text-base leading-relaxed! text-body-color md:text-lg">
+                  我们不止是搭建网站，更是为您构建一套适配搜索引擎规则的获客系统。通过高性能Next.js架构与精准SEO/GEO优化的深度结合，让您的品牌在目标市场搜索中获得更高曝光，持续为业务引流。
+                </p>
+              </div>
 
               <div
                 className="mb-12 max-w-[570px] lg:mb-0"
