@@ -14,7 +14,7 @@ const featuresData: Feature[] = [
     ),
     title: "专为创业公司打造",
     paragraph:
-      "为创业公司量身定制的模板，帮助您快速启动业务。简洁优雅的设计，让您的产品脱颖而出。",
+      "创业初期没时间搞技术？\n 不用从零搭建，快速上线不拖业务后腿",
   },
   {
     id: 2,
@@ -29,7 +29,7 @@ const featuresData: Feature[] = [
     ),
     title: "高品质设计",
     paragraph:
-      "专业级别的设计水准，精心打造的用户界面，让您的网站看起来更加专业和可信。",
+      "网站low、没质感，客户一看就走？\n 专业级设计，告别廉价感，提升品牌可信度",
   },
   {
     id: 3,
@@ -44,7 +44,7 @@ const featuresData: Feature[] = [
     ),
     title: "Next.js 16（最新版）",
     paragraph:
-      "基于最新版本的 Next.js 16 构建，享受最新的特性和性能优化，为您的用户提供更快的体验。",
+      "网站加载慢、用户等不及就关了？\n 用最新Next.js 16构建，速度拉满，减少客户流失",
   },
   {
     id: 4,
@@ -56,7 +56,7 @@ const featuresData: Feature[] = [
     ),
     title: "Tailwind CSS",
     paragraph:
-      "使用 Tailwind CSS 4.x 构建，提供强大的样式系统，让您轻松定制外观，实现任何设计效果。",
+      "改个样式要等前端排期？\n 基于Tailwind CSS 4.x构建，改色改布局不用等，想怎么调就怎么调",
   },
   {
     id: 5,
@@ -71,7 +71,7 @@ const featuresData: Feature[] = [
     ),
     title: "完全可定制",
     paragraph:
-      "灵活的组件架构，易于自定义和扩展。无论是颜色、布局还是功能，都可以轻松调整以满足您的需求。",
+      "模板千篇一律，想改点东西处处受限？\n 从颜色、布局到功能，想怎么定制就怎么定制，完全适配你的业务",
   },
   {
     id: 6,
@@ -86,7 +86,7 @@ const featuresData: Feature[] = [
     ),
     title: "武汉同城专属GEO优化",
     paragraph:
-      "专注武汉本地商家网站GEO优化，精准植入区域关键词，助力您的网站在同城搜索中脱颖而出，高效获取本地客户。",
+      "武汉本地客户搜不到你的网站？\n 针对武汉同城GEO深度优化，本地客户搜关键词优先找到你",
   },
 ];
 export default featuresData;

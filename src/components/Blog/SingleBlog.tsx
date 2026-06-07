@@ -3,7 +3,7 @@ import Image from "next/image";
 import { AuroraText } from "@/components/ui/aurora-text";
 
 const SingleBlog = ({ blog }: { blog: Blog }) => {
-  const { title, image, paragraph, author, tags, publishDate } = blog;
+  const { title, image, paragraph } = blog;
   return (
     <>
       <div className="group shadow-one hover:shadow-two dark:bg-dark dark:hover:shadow-gray-dark relative overflow-hidden rounded-xs bg-white duration-300">

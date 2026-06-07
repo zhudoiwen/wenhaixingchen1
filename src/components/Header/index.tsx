@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AuroraText } from "@/components/ui/aurora-text";
 import ThemeToggler from "./ThemeToggler";
@@ -25,48 +25,34 @@ const Header = () => {
 
   const [sticky, setSticky] = useState(false);
   const handleStickyNavbar = () => {
-    if (window.scrollY >= 80) {
-      setSticky(true);
-    } else {
-      setSticky(false);
-    }
+    setSticky(window.scrollY >= 80);
   };
   useEffect(() => {
     window.addEventListener("scroll", handleStickyNavbar);
-  });
+    return () => window.removeEventListener("scroll", handleStickyNavbar);
+  }, []);
 
-  const [openIndex, setOpenIndex] = useState(-1);
-  const handleSubmenu = (index) => {
-    if (openIndex === index) {
-      setOpenIndex(-1);
-    } else {
-      setOpenIndex(index);
-    }
+  const [openIndex, setOpenIndex] = useState<number>(-1);
+  const handleSubmenu = (index: number) => {
+    setOpenIndex(openIndex === index ? -1 : index);
   };
 
-  const router = useRouter();
   const usePathName = usePathname();
 
-  const handleAnchorClick = (e, path) => {
-    if (path.startsWith('#')) {
-      e.preventDefault();
+  const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
+    if (!path.startsWith('#')) return;
+    e.preventDefault();
+
+    if (usePathName === '/') {
       const targetId = path.substring(1);
-      
-      if (usePathName === '/') {
-        const targetElement = document.getElementById(targetId);
-        if (targetElement) {
-          targetElement.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      } else {
-        router.push('/#contact', { scroll: false });
+      const targetElement = document.getElementById(targetId);
+      if (targetElement) {
+        targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
-      
-      if (navbarOpen) {
-        setNavbarOpen(false);
-      }
+    }
+
+    if (navbarOpen) {
+      setNavbarOpen(false);
     }
   };
 
