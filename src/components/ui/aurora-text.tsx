@@ -40,14 +40,13 @@ export const AuroraText = memo(
       <span
         ref={ref}
         className={`relative inline-block content-visibility-auto ${className}`}
+        aria-label={typeof children === 'string' ? children : undefined}
       >
-        <span className="sr-only">{children}</span>
         <span
           className={`relative bg-size-[200%_auto] bg-clip-text text-transparent ${
             isAnimating ? "animate-aurora" : ""
           }`}
           style={gradientStyle}
-          aria-hidden="true"
         >
           {children}
         </span>

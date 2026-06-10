@@ -1,3 +1,5 @@
+import ArticleLibrary from "@/components/Blog/ArticleLibrary";
+import PageTTSPlayer from "@/components/Blog/PageTTSPlayer";
 import SingleBlog from "@/components/Blog/SingleBlog";
 import blogData from "@/components/Blog/blogData";
 import Breadcrumb from "@/components/Common/Breadcrumb";
@@ -13,27 +15,32 @@ export const metadata: Metadata = {
 const Blog = () => {
   return (
     <>
-      <Breadcrumb
-        pageName="流量增长工具"
-        description="查看我们的精选项目，了解同城GEO优化与生成式引擎优化的真实效果。"
-      />
+      <div id="page-readable-content" className="pb-28">
+        <Breadcrumb
+          pageName="流量增长工具"
+          description="查看我们的精选项目，了解同城GEO优化与生成式引擎优化的真实效果。"
+        />
 
-      <section className="pt-[120px] pb-[120px]">
-        <div className="container">
-          <div className="-mx-4 flex flex-wrap justify-center">
-            {blogData.map((blog) => (
-              <div
-                key={blog.id}
-                className="w-full px-4 md:w-2/3 lg:w-1/2 xl:w-1/3"
-              >
-                <SingleBlog blog={blog} />
-              </div>
-            ))}
-          </div>
+        <section className="pt-[120px] pb-[120px]">
+          <div className="container">
+            <div className="-mx-4 flex flex-wrap justify-center">
+              {blogData.map((blog) => (
+                <div
+                  key={blog.id}
+                  className="w-full px-4 md:w-2/3 lg:w-1/2 xl:w-1/3"
+                >
+                  <SingleBlog blog={blog} />
+                </div>
+              ))}
+            </div>
 
-          <div className="-mx-4 flex flex-wrap" data-wow-delay=".15s">
-            <div className="w-full px-4">
-              <ul className="flex items-center justify-center pt-8">
+            <div
+              className="-mx-4 flex flex-wrap"
+              data-wow-delay=".15s"
+              data-tts-exclude
+            >
+              <div className="w-full px-4">
+                <ul className="flex items-center justify-center pt-8">
                 <li className="mx-1">
                   <a
                     href="#0"
@@ -92,6 +99,11 @@ const Blog = () => {
           </div>
         </div>
       </section>
+
+        <ArticleLibrary />
+      </div>
+
+      <PageTTSPlayer />
     </>
   );
 };

@@ -56,41 +56,41 @@ export function AnimatedBeamMultipleOutputDemo({
       <div className="flex size-full max-w-lg flex-row items-stretch justify-between gap-10">
         <div className="flex flex-col justify-center">
           <Circle ref={div7Ref}>
-            <LocalIcon src="/images/1_副本.svg" alt="用户" />
+            <LocalIcon src="/images/beam-1.svg" alt="用户" />
           </Circle>
         </div>
         <div className="flex flex-col justify-center">
           <Circle ref={div6Ref} className="size-16">
-            <LocalIcon src="/images/2_副本.svg" alt="中心" />
+            <LocalIcon src="/images/beam-2.svg" alt="中心" />
           </Circle>
         </div>
         <div className="flex flex-col justify-center gap-2">
           <Circle ref={div1Ref}>
-            <LocalIcon src="/images/3_副本.svg" alt="图标1" />
+            <LocalIcon src="/images/beam-3.svg" alt="图标1" />
           </Circle>
           <Circle ref={div2Ref}>
-            <LocalIcon src="/images/4_副本.svg" alt="图标2" />
+            <LocalIcon src="/images/beam-4.svg" alt="图标2" />
           </Circle>
           <Circle ref={div3Ref}>
-            <LocalIcon src="/images/5_副本.svg" alt="图标3" />
+            <LocalIcon src="/images/beam-5.svg" alt="图标3" />
           </Circle>
           <Circle ref={div4Ref}>
-            <LocalIcon src="/images/6_副本.svg" alt="图标4" />
+            <LocalIcon src="/images/beam-6.svg" alt="图标4" />
           </Circle>
           <Circle ref={div5Ref}>
-            <LocalIcon src="/images/7_副本.svg" alt="图标5" />
+            <LocalIcon src="/images/beam-7.svg" alt="图标5" />
           </Circle>
           <Circle ref={div8Ref}>
-            <LocalIcon src="/images/8_副本.svg" alt="图标6" />
+            <LocalIcon src="/images/beam-8.svg" alt="图标6" />
           </Circle>
           <Circle ref={div9Ref}>
-            <LocalIcon src="/images/9_副本.svg" alt="图标7" />
+            <LocalIcon src="/images/beam-9.svg" alt="图标7" />
           </Circle>
           <Circle ref={div10Ref}>
-            <LocalIcon src="/images/10_副本.svg" alt="图标8" />
+            <LocalIcon src="/images/beam-10.svg" alt="图标8" />
           </Circle>
           <Circle ref={div11Ref}>
-            <LocalIcon src="/images/11_副本.svg" alt="图标9" />
+            <LocalIcon src="/images/beam-11.svg" alt="图标9" />
           </Circle>
         </div>
       </div>

@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { AuroraText } from "@/components/ui/aurora-text";
 import ThemeToggler from "./ThemeToggler";
@@ -38,6 +38,7 @@ const Header = () => {
   };
 
   const usePathName = usePathname();
+  const router = useRouter();
 
   const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement>, path: string) => {
     if (!path.startsWith('#')) return;
@@ -49,6 +50,8 @@ const Header = () => {
       if (targetElement) {
         targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
+    } else {
+      router.push('/' + path);
     }
 
     if (navbarOpen) {

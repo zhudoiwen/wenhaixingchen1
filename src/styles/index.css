@@ -362,3 +362,16 @@ layer(base);
   --color-4: oklch(80.2% 0.134 225);
   --color-5: oklch(90.7% 0.231 133);
 }
+
+.highlight-container .highlight-active {
+  background-color: rgba(255, 41, 117, 0.15);
+  border-radius: 6px;
+  padding: 6px 10px;
+  transition: all 0.3s ease;
+  border-left: 3px solid #ff2975;
+}
+
+.dark .highlight-container .highlight-active {
+  background-color: rgba(255, 41, 117, 0.2);
+  border-left-color: #ff2975;
+}
