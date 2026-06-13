@@ -30,7 +30,34 @@ const Hero = () => {
                   <br />
                   服务对象：中小企业、本地商家、初创品牌
                 </p>
-
+                <div className="mb-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                  <a
+                    href="#contact"
+                    className="rounded-xs bg-[#4A6CF7] px-8 py-4 text-base font-semibold text-white shadow-submit duration-300 hover:bg-[#3f5ee0] dark:shadow-submit-dark"
+                  >
+                    免费诊断获客问题
+                  </a>
+                  <a
+                    href="#cases"
+                    className="rounded-xs border border-[#4A6CF7]/30 px-8 py-4 text-base font-semibold text-[#4A6CF7] duration-300 hover:border-[#4A6CF7] hover:bg-[#4A6CF7]/5 dark:border-white/20 dark:text-white dark:hover:border-white"
+                  >
+                    查看交付案例
+                  </a>
+                </div>
+                <div className="grid grid-cols-1 gap-4 text-left sm:grid-cols-3">
+                  <div className="rounded-xs border border-body-color/10 bg-white/70 p-4 dark:border-white/10 dark:bg-white/5">
+                    <p className="text-2xl font-bold text-black dark:text-white">7-15天</p>
+                    <p className="text-sm text-body-color dark:text-body-color-dark">常规官网上线周期</p>
+                  </div>
+                  <div className="rounded-xs border border-body-color/10 bg-white/70 p-4 dark:border-white/10 dark:bg-white/5">
+                    <p className="text-2xl font-bold text-black dark:text-white">SEO+GEO</p>
+                    <p className="text-sm text-body-color dark:text-body-color-dark">上线即配置搜索基础</p>
+                  </div>
+                  <div className="rounded-xs border border-body-color/10 bg-white/70 p-4 dark:border-white/10 dark:bg-white/5">
+                    <p className="text-2xl font-bold text-black dark:text-white">武汉本地</p>
+                    <p className="text-sm text-body-color dark:text-body-color-dark">支持面谈与长期维护</p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

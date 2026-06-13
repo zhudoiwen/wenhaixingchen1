@@ -23,7 +23,7 @@ const Pricing = (props: {
             </AuroraText>
           </h2>
           <p className="text-base leading-relaxed! text-body-color md:text-lg">
-            我们提供多种定价方案，满足不同规模企业的需求。选择最适合您的方案，开始您的创业之旅。
+            从基础官网到持续搜索获客优化，明确交付内容、上线周期和维护方式，方便您按当前阶段选择。
           </p>
         </div>
 
@@ -82,43 +82,43 @@ const Pricing = (props: {
             packageName="企业官网搭建 · 基础版"
             price={isMonthly ? "99" : "999"}
             duration={isMonthly ? "月" : "年"}
-            subtitle={'适合个人开发者和小项目使用，快速搭建企业官网/站点，解决"没有线上门面、客户搜不到"的核心痛点'}
+            subtitle={'适合个体商家、小微企业和新品牌，先拥有一个可展示、可分享、可被搜索理解的线上门面。'}
             onButtonClick={onButtonClick}
           >
             <OfferList text="✅ 响应式官网（适配手机/电脑）" status="active" />
-            <OfferList text="✅ 单站商用授权" status="active" />
+            <OfferList text="✅ 首页/服务/联系等基础页面" status="active" />
             <OfferList text="✅ 基础SEO/GEO配置" status="active" />
+            <OfferList text="✅ 上线部署与基础验收" status="active" />
             <OfferList text="✅ 1次免费维护更新" status="active" />
             <OfferList text="✅ 7×12小时微信支持" status="active" />
-            <OfferList text="✅ 1年访问权限" status="active" />
           </PricingBox>
           <PricingBox
-            packageName="成式引擎优化 · 标准版"
+            packageName="生成式引擎优化 · 标准版"
             price={isMonthly ? "1999" : "19999"}
             duration={isMonthly ? "月" : "年"}
-            subtitle={'适合中小型企业和本地商家使用，快速优化同城流量与搜索排名，解决"曝光低、客户引不来"的核心痛点'}
+            subtitle={'适合已有官网或准备重点获客的本地商家，围绕同城关键词、AI 摘要和转化路径持续优化。'}
             onButtonClick={onButtonClick}
           >
             <OfferList text="✅ 生成式引擎优化.GEO" status="active" />
             <OfferList text="✅ 同城GEO全案配置" status="active" />
             <OfferList text="✅ 地图/本地流量优化" status="active" />
             <OfferList text="✅ 月度优化数据报表" status="active" />
+            <OfferList text="✅ FAQ与结构化数据优化" status="active" />
             <OfferList text="✅ 7×12小时微信支持" status="active" />
-            <OfferList text="✅ 1年访问与更新权限" status="active" />
           </PricingBox>
           <PricingBox
             packageName="个人定制全案·高级版"
             price={isMonthly ? "5999" : "71999"}
             duration={isMonthly ? "月" : "年"}
-            subtitle={'适合大型企业与品牌定制，解决"流量瓶颈、增长停滞"的核心痛点'}
+            subtitle={'适合品牌定制、内容矩阵和长期增长项目，覆盖官网、内容、收录、私域承接的完整链路。'}
             onButtonClick={onButtonClick}
           >
             <OfferList text="✅ 全渠道生成式引擎优化" status="active" />
             <OfferList text="✅ 品牌级同城GEO战略" status="active" />
             <OfferList text="✅ 私域流量闭环搭建" status="active" />
             <OfferList text="✅ 季度深度增长报告" status="active" />
+            <OfferList text="✅ 多页面内容规划与迭代" status="active" />
             <OfferList text="✅ 7×24小时专属运营支持" status="active" />
-            <OfferList text="✅ 1年全案服务与升级权限" status="active" />
           </PricingBox>
         </div>
       </div>

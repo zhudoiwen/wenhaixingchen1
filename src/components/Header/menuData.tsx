@@ -14,6 +14,18 @@ const menuData: Menu[] = [
     newTab: false,
   },
   {
+    id: 3,
+    title: "案例保障",
+    path: "#cases",
+    newTab: false,
+  },
+  {
+    id: 5,
+    title: "价格",
+    path: "#pricing",
+    newTab: false,
+  },
+  {
     id: 33,
     title: "流量增长工具",
     path: "/blog",

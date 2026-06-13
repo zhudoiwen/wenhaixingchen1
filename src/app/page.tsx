@@ -3,6 +3,7 @@
 import AboutSectionOne from "@/components/About/AboutSectionOne";
 import Blog from "@/components/Blog";
 import Brands from "@/components/Brands";
+import CaseStudies from "@/components/CaseStudies";
 import { ContactDemo } from "@/components/ContactDemo";
 import ScrollUp from "@/components/Common/ScrollUp";
 import Features from "@/components/Features";
@@ -48,6 +49,7 @@ export default function Home() {
       <Brands />
       <AboutSectionOne />
       <Testimonials />
+      <CaseStudies />
       <Pricing onButtonClick={() => setWeChatOpen(true)} />
       <Blog />
       <div id="contact" className="flex justify-center py-16">

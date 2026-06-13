@@ -35,14 +35,9 @@ const PricingBox = (props: {
         <div className="border-body-color/10 mb-8 border-b pb-8 dark:border-white/10">
           <button 
               onClick={onButtonClick}
-              className="bg-primary/80 hover:shadow-signUp flex w-full items-center justify-center rounded-xs p-3 text-base font-semibold text-white transition duration-300 ease-in-out"
+              className="flex w-full items-center justify-center rounded-xs bg-[#4A6CF7] p-3 text-base font-semibold text-white transition duration-300 ease-in-out hover:bg-[#3f5ee0] hover:shadow-signUp"
             >
-              <AuroraText
-                colors={["#ff2975", "#7928CA", "#0070F3", "#38bdf8"]}
-                speed={1.2}
-              >
-                开始免费试用
-              </AuroraText>
+              获取方案建议
             </button>
         </div>
         <div>{children}</div>
